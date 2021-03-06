@@ -7,6 +7,7 @@ import { HashComparer } from '@/shared/criptography/hash-comparer';
 import { LoadUserByEmailRepository } from '@/user/repositories/load-user-by-email/load-user-by-email.repository';
 import { AddUserService } from '@/user/services/add-user/add-user.service';
 import { LoadUserByEmailService } from '@/user/services/load-user-by-email/load-user-by-email.service';
+import { AddUserController } from '@/user/controllers/add-user/add-user.contrroller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, LoadUserByEmailRepository])],
@@ -17,5 +18,6 @@ import { LoadUserByEmailService } from '@/user/services/load-user-by-email/load-
     Hasher,
     HashComparer,
   ],
+  controllers: [AddUserController],
 })
 export class UserModule {}
