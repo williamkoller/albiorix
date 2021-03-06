@@ -8,16 +8,26 @@ import { LoadUserByEmailRepository } from '@/user/repositories/load-user-by-emai
 import { AddUserService } from '@/user/services/add-user/add-user.service';
 import { LoadUserByEmailService } from '@/user/services/load-user-by-email/load-user-by-email.service';
 import { AddUserController } from '@/user/controllers/add-user/add-user.contrroller';
+import { LoadAllUsersRepository } from '@/user/repositories/load-all-users/load-all-users.repository';
+import { LoadAllUsersController } from '@/user/controllers/load-all-users/load-all-users.controller';
+import { LoadAllUsersService } from '@/user/services/load-all-users/load-all-users.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, LoadUserByEmailRepository])],
+  imports: [
+    TypeOrmModule.forFeature([
+      User,
+      LoadUserByEmailRepository,
+      LoadAllUsersRepository,
+    ]),
+  ],
   providers: [
     AddUserRepository,
     AddUserService,
     LoadUserByEmailService,
+    LoadAllUsersService,
     Hasher,
     HashComparer,
   ],
-  controllers: [AddUserController],
+  controllers: [AddUserController, LoadAllUsersController],
 })
 export class UserModule {}
