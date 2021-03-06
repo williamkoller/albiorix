@@ -11,7 +11,11 @@ All notable changes to this project will be documented in this file.
 - Add Table Users
 - Add LoggingInterceptor and TransformInterceptor
 - Add init git flow
-- add branch develop
+- Add branch develop
+- Add UserModule
+- Add AddUser in repository, service and controller
+- Add Swagger
+- Add AddUserDto with class-validator
 
 ## Release [v x.x.] - xxxx-xx-xx
 
