@@ -11,7 +11,7 @@ export class AddTableUsers1614998251663 implements MigrationInterface {
         "password" character varying NOT NULL,
         "tel" character varying NULL,
         created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        updated_at timestamp(0) NULL,
+        updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
         CONSTRAINT users_unique_email UNIQUE (email),
         CONSTRAINT "users_pk" PRIMARY KEY ("id"));`);
   }
