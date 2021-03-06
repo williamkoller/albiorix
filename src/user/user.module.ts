@@ -5,9 +5,17 @@ import { AddUserRepository } from '@/user/repositories/add-user/add-user.reposit
 import { Hasher } from '@/shared/criptography/hasher';
 import { HashComparer } from '@/shared/criptography/hash-comparer';
 import { LoadUserByEmailRepository } from '@/user/repositories/load-user-by-email/load-user-by-email.repository';
+import { AddUserService } from '@/user/services/add-user/add-user.service';
+import { LoadUserByEmailService } from '@/user/services/load-user-by-email/load-user-by-email.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, LoadUserByEmailRepository])],
-  providers: [AddUserRepository, Hasher, HashComparer],
+  providers: [
+    AddUserRepository,
+    AddUserService,
+    LoadUserByEmailService,
+    Hasher,
+    HashComparer,
+  ],
 })
 export class UserModule {}
