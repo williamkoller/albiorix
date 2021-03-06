@@ -4,6 +4,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { LoggingInterceptor } from '@/common/interceptors/logging.interceptor';
 import { TransformInterceptor } from '@/common/interceptors/transform.interceptor';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -16,6 +17,15 @@ async function bootstrap() {
   );
 
   app.setGlobalPrefix('api');
+
+  const config = new DocumentBuilder()
+    .setTitle('Albiorix example')
+    .setDescription('The albiorix API description')
+    .setVersion('1.0')
+    .addTag('user')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api/docs', app, document);
 
   await app.listen(process.env.PORT, () => logger.log(`Server running...`));
 }
