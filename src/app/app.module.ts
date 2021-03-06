@@ -1,5 +1,6 @@
 import { configService } from '@/config/config.service';
-import { Module } from '@nestjs/common';
+import { UserModule } from '@/user/user.module';
+import { forwardRef, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -14,6 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       limit: Number(process.env.THROTTLER_LIMIT),
     }),
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()[0]),
+    forwardRef(() => UserModule),
   ],
   controllers: [],
   providers: [],
