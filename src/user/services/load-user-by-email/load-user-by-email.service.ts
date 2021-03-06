@@ -1,6 +1,6 @@
 import { User } from '@/entities/user';
 import { LoadUserByEmailRepository } from '@/user/repositories/load-user-by-email/load-user-by-email.repository';
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class LoadUserByEmailService {
@@ -9,12 +9,6 @@ export class LoadUserByEmailService {
   ) {}
 
   async loadUserByEmail(email: string): Promise<User> {
-    const userByEmail = await this.loadUSerByEmailRepository.loadByEmail(email);
-
-    if (!userByEmail) {
-      throw new NotFoundException('User not found.');
-    }
-
-    return userByEmail;
+    return await this.loadUSerByEmailRepository.loadByEmail(email);
   }
 }
