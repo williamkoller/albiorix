@@ -20,7 +20,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm:drop": "npm run typeorm schema:drop",
-    "pretypeorm": "(rm ormconfig.json || :) && ts-node -r tsconfig-paths/register src/scripts/ormconfig.ts",
+    "pretypeorm": "(rm ormconfig.json || :) && ts-node -r tsconfig-paths/register src/scripts/orm.config.ts",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "typeorm:migration:create": "npm run typeorm -- migration:create -n",
     "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",
@@ -33,11 +33,16 @@
   },
   "dependencies": {
     "@nestjs/common": "^7.6.13",
+    "@nestjs/config": "^0.6.3",
     "@nestjs/core": "^7.6.13",
     "@nestjs/platform-express": "^7.6.13",
+    "@nestjs/typeorm": "^7.1.5",
+    "dotenv": "^8.2.0",
+    "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.6.6"
+    "rxjs": "^6.6.6",
+    "typeorm": "^0.2.31"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.5.6",
@@ -81,7 +86,7 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-   "engines": {
+  "engines": {
     "node": "12.20.1"
   }
 }
