@@ -11,6 +11,7 @@ import { AddUserController } from '@/user/controllers/add-user/add-user.contrrol
 import { LoadAllUsersRepository } from '@/user/repositories/load-all-users/load-all-users.repository';
 import { LoadAllUsersController } from '@/user/controllers/load-all-users/load-all-users.controller';
 import { LoadAllUsersService } from '@/user/services/load-all-users/load-all-users.service';
+import { LoadUserByEmailController } from '@/user/controllers/load-user-by-email/load-user-by-email.controller';
 
 @Module({
   imports: [
@@ -28,6 +29,10 @@ import { LoadAllUsersService } from '@/user/services/load-all-users/load-all-use
     Hasher,
     HashComparer,
   ],
-  controllers: [AddUserController, LoadAllUsersController],
+  controllers: [
+    AddUserController,
+    LoadAllUsersController,
+    LoadUserByEmailController,
+  ],
 })
 export class UserModule {}
