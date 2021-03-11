@@ -12,6 +12,7 @@ import { LoadAllUsersRepository } from '@/user/repositories/load-all-users/load-
 import { LoadAllUsersController } from '@/user/controllers/load-all-users/load-all-users.controller';
 import { LoadAllUsersService } from '@/user/services/load-all-users/load-all-users.service';
 import { LoadUserByEmailController } from '@/user/controllers/load-user-by-email/load-user-by-email.controller';
+import { LoadUserByIdRepository } from '@/user/repositories/load-user-by-id/load-user-by-id.repository';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { LoadUserByEmailController } from '@/user/controllers/load-user-by-email
       User,
       LoadUserByEmailRepository,
       LoadAllUsersRepository,
+      LoadUserByIdRepository,
     ]),
   ],
   providers: [
