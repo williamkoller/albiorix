@@ -15,8 +15,6 @@ export class LoadUserByEmailService {
       throw new NotFoundException('User not found.');
     }
 
-    delete user.password;
-
     return user;
   }
 }

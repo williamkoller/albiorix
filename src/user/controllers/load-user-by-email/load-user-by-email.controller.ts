@@ -15,8 +15,12 @@ export class LoadUserByEmailController {
   async loadUserByEmail(
     @Param() loadUserByEmailDto: LoadUserByEmailDto,
   ): Promise<User> {
-    return await this.loadUserByEmailService.loadUserByEmail(
+    const user = await this.loadUserByEmailService.loadUserByEmail(
       loadUserByEmailDto.email,
     );
+
+    delete user.password;
+
+    return user;
   }
 }
