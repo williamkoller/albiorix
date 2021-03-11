@@ -14,6 +14,9 @@ import { LoadAllUsersService } from '@/user/services/load-all-users/load-all-use
 import { LoadUserByEmailController } from '@/user/controllers/load-user-by-email/load-user-by-email.controller';
 import { LoadUserByIdRepository } from '@/user/repositories/load-user-by-id/load-user-by-id.repository';
 import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-by-id.service';
+import { LoadUserByNameRepository } from '@/user/repositories/load-user-by-name/load-user-by-name.repository';
+import { LoadUserByNameService } from '@/user/services/load-user-by-name/load-user-by-name.service';
+import { LoadUserByNameController } from '@/user/controllers/load-user-by-name/load-user-by-name.controller';
 
 @Module({
   imports: [
@@ -22,6 +25,7 @@ import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-b
       LoadUserByEmailRepository,
       LoadAllUsersRepository,
       LoadUserByIdRepository,
+      LoadUserByNameRepository,
     ]),
   ],
   providers: [
@@ -32,11 +36,13 @@ import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-b
     Hasher,
     HashComparer,
     LoadUserByIdService,
+    LoadUserByNameService,
   ],
   controllers: [
     AddUserController,
     LoadAllUsersController,
     LoadUserByEmailController,
+    LoadUserByNameController,
   ],
 })
 export class UserModule {}
