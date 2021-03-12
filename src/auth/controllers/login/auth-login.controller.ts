@@ -8,7 +8,7 @@ import {
   Logger,
   Post,
 } from '@nestjs/common';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -25,6 +25,7 @@ export class AuthLoginController {
     status: 401,
     description: 'Unauthorized',
   })
+  @ApiBody({ type: AuthUserDto })
   async async(@Body() authUserDto: AuthUserDto): Promise<ReturnUserDto> {
     try {
       return await this.validateUserService.validateUser(authUserDto);

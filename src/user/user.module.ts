@@ -20,6 +20,7 @@ import { LoadUserByNameController } from '@/user/controllers/load-user-by-name/l
 import { DeleteUserRepository } from '@/user/repositories/delete-user/delete-user.repository';
 import { DeleteUserController } from '@/user/controllers/delete-user/delete-user.controller';
 import { DeleteUserService } from '@/user/services/delete-user/delete-user.service';
+import { LoadUserByIdController } from '@/user/controllers/load-user-by-id/load-user-by-id.controller';
 
 @Module({
   imports: [
@@ -49,6 +50,7 @@ import { DeleteUserService } from '@/user/services/delete-user/delete-user.servi
     LoadUserByEmailController,
     LoadUserByNameController,
     DeleteUserController,
+    LoadUserByIdController,
   ],
 })
 export class UserModule {}

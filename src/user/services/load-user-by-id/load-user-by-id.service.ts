@@ -10,8 +10,9 @@ export class LoadUserByIdService {
 
   async loadUserById(id: string): Promise<User> {
     const userId = await this.loadUserByIdRepository.loadUserById(id);
+
     if (!userId) {
-      throw new NotFoundException('USer not found.');
+      throw new NotFoundException('User not found.');
     }
 
     return userId;
