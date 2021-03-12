@@ -17,6 +17,9 @@ import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-b
 import { LoadUserByNameRepository } from '@/user/repositories/load-user-by-name/load-user-by-name.repository';
 import { LoadUserByNameService } from '@/user/services/load-user-by-name/load-user-by-name.service';
 import { LoadUserByNameController } from '@/user/controllers/load-user-by-name/load-user-by-name.controller';
+import { DeleteUserRepository } from '@/user/repositories/delete-user/delete-user.repository';
+import { DeleteUserController } from '@/user/controllers/delete-user/delete-user.controller';
+import { DeleteUserService } from '@/user/services/delete-user/delete-user.service';
 
 @Module({
   imports: [
@@ -26,6 +29,7 @@ import { LoadUserByNameController } from '@/user/controllers/load-user-by-name/l
       LoadAllUsersRepository,
       LoadUserByIdRepository,
       LoadUserByNameRepository,
+      DeleteUserRepository,
     ]),
   ],
   providers: [
@@ -37,12 +41,14 @@ import { LoadUserByNameController } from '@/user/controllers/load-user-by-name/l
     HashComparer,
     LoadUserByIdService,
     LoadUserByNameService,
+    DeleteUserService,
   ],
   controllers: [
     AddUserController,
     LoadAllUsersController,
     LoadUserByEmailController,
     LoadUserByNameController,
+    DeleteUserController,
   ],
 })
 export class UserModule {}
