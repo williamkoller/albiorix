@@ -37,8 +37,8 @@ class ConfigService {
         username: this.getValue('POSTGRES_USER'),
         password: this.getValue('POSTGRES_PASSWORD'),
         database: this.getValue('POSTGRES_DATABASE'),
-        synchronize: false,
-        migrationsRun: true,
+        synchronize: JSON.parse(this.getValue('SYNCRONIZE')),
+        migrationsRun: JSON.parse(this.getValue('RUN_MIGRATIONS')),
         cache: true,
         logging: JSON.parse(this.getValue('LOGGING')),
         autoLoadEntities: true,
@@ -61,6 +61,8 @@ const configService = new ConfigService(process.env).ensureValues([
   'POSTGRES_USER',
   'POSTGRES_PASSWORD',
   'POSTGRES_DATABASE',
+  'SYNCRONIZE',
+  'RUN_MIGRATIONS',
 ]);
 
 export { configService };
