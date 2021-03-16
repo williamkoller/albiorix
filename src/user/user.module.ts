@@ -1,5 +1,5 @@
 import { User } from '@/entities/user';
-import { Module } from '@nestjs/common';
+import { CacheModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AddUserRepository } from '@/user/repositories/add-user/add-user.repository';
 import { Hasher } from '@/shared/criptography/hasher';
@@ -32,6 +32,12 @@ import { LoadUserByIdController } from '@/user/controllers/load-user-by-id/load-
       LoadUserByNameRepository,
       DeleteUserRepository,
     ]),
+    CacheModule.registerAsync({
+      useFactory: () => ({
+        ttl: Number(process.env.CACHE_TTL),
+        max: Number(process.env.CACHE_LIMIT),
+      }),
+    }),
   ],
   providers: [
     AddUserRepository,
