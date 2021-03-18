@@ -2,10 +2,12 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from '@/app/app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { Logger, ValidationPipe } from '@nestjs/common';
-import { LoggingInterceptor } from '@/common/interceptors/logging.interceptor';
-import { TransformInterceptor } from '@/common/interceptors/transform.interceptor';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { TimeoutInterceptor } from '@/common/interceptors/timeout.interceptor';
+import {
+  TimeoutInterceptor,
+  LoggingInterceptor,
+  TransformInterceptor,
+} from '@/common/interceptors';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
