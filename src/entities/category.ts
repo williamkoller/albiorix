@@ -13,9 +13,7 @@ export class Category extends BaseEntity {
   @Column({ type: 'varchar' })
   type: string;
 
-  @ManyToOne(() => Product, (product) => product.categories, {
-    cascade: true,
-  })
+  @ManyToOne(() => Product, (product) => product.categories, { cascade: true })
   @JoinTable()
   product: Product;
 
