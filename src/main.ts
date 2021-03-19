@@ -27,6 +27,7 @@ async function bootstrap() {
     .setDescription('The albiorix API description')
     .setVersion('1.0')
     .addTag('user')
+    .addTag('category')
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
