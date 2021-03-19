@@ -9,9 +9,9 @@ export class AddTableCategory1616120304871 implements MigrationInterface {
         "type" character varying NOT NULL,
         created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        "product_id" uuid,
+        "productId" uuid,
         CONSTRAINT "categories_pk" PRIMARY KEY ("id"),
-        CONSTRAINT "FK_product_id_key" FOREIGN KEY ("product_id")
+        CONSTRAINT "FK_product_id_key" FOREIGN KEY ("productId")
         REFERENCES "products"("id") ON DELETE CASCADE ON UPDATE CASCADE
         );
     `);
