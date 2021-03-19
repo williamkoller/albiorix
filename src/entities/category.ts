@@ -13,9 +13,14 @@ export class Category extends BaseEntity {
   @Column({ type: 'varchar' })
   type: string;
 
-  @ManyToOne(() => Product, (products) => products.categories, {
+  @ManyToOne(() => Product, (product) => product.categories, {
     cascade: true,
   })
   @JoinTable()
-  products: Product[];
+  product: Product;
+
+  constructor(partial: Partial<Category>) {
+    super();
+    Object.assign(this, partial);
+  }
 }
