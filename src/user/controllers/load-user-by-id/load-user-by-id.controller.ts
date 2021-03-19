@@ -1,11 +1,15 @@
+import { JwtAuthGuard } from '@/auth/guards/jwt-auth.guard';
 import { User } from '@/entities/user';
 import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-by-id.service';
 import {
+  CacheInterceptor,
   Controller,
   Get,
   HttpStatus,
   Param,
   ParseUUIDPipe,
+  UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
@@ -14,6 +18,8 @@ import { ApiTags } from '@nestjs/swagger';
 export class LoadUserByIdController {
   constructor(private readonly loadUserByIdService: LoadUserByIdService) {}
 
+  @UseGuards(JwtAuthGuard)
+  @UseInterceptors(CacheInterceptor)
   @Get('load-user-by-id/:id')
   async loadUserById(
     @Param(
@@ -22,6 +28,8 @@ export class LoadUserByIdController {
     )
     id: string,
   ): Promise<User> {
-    return await this.loadUserByIdService.loadUserById(id);
+    const userId = await this.loadUserByIdService.loadUserById(id);
+    delete userId.password;
+    return userId;
   }
 }
