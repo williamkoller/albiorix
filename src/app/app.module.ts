@@ -1,4 +1,5 @@
 import { AuthModule } from '@/auth/auth.module';
+import { CategoryModule } from '@/category/category.module';
 import { configService } from '@/config/config.service';
 import { UserModule } from '@/user/user.module';
 import { forwardRef, Module } from '@nestjs/common';
@@ -18,6 +19,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()[0]),
     forwardRef(() => UserModule),
     forwardRef(() => AuthModule),
+    forwardRef(() => CategoryModule),
   ],
   controllers: [],
   providers: [],
