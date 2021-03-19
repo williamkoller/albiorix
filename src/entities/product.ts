@@ -13,9 +13,12 @@ export class Product extends BaseEntity {
   @Column({ type: 'int4' })
   price: number;
 
-  @OneToMany(() => Category, (categories) => categories.products, {
-    eager: true,
-  })
+  @OneToMany(() => Category, (category) => category.product, { eager: true })
   @JoinTable()
   categories: Category[];
+
+  constructor(partial: Partial<Product>) {
+    super();
+    Object.assign(this, partial);
+  }
 }
