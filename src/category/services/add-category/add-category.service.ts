@@ -17,7 +17,7 @@ export class AddCategoryService {
       name,
     );
 
-    if (categoryExists) {
+    if (categoryExists.length) {
       throw new ConflictException(`This ${name} in category already exists.`);
     }
 
