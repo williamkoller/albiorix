@@ -5,6 +5,8 @@ import {
   BadRequestException,
   Body,
   Controller,
+  HttpCode,
+  HttpStatus,
   Logger,
   Post,
 } from '@nestjs/common';
@@ -17,6 +19,7 @@ export class AuthLoginController {
   constructor(private readonly validateUserService: ValidateUserService) {}
 
   @Post('login')
+  @HttpCode(HttpStatus.OK)
   @ApiResponse({
     status: 200,
     description: 'User logged with successfully.',
