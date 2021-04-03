@@ -32,12 +32,12 @@
     "seed:revert": "npm run typeorm -- migration:revert -c seed"
   },
   "dependencies": {
-    "@nestjs/common": "^7.6.13",
+    "@nestjs/common": "^7.6.14",
     "@nestjs/config": "^0.6.3",
-    "@nestjs/core": "^7.6.13",
+    "@nestjs/core": "^7.6.14",
     "@nestjs/jwt": "^7.2.0",
     "@nestjs/passport": "^7.1.5",
-    "@nestjs/platform-express": "^7.6.13",
+    "@nestjs/platform-express": "^7.6.14",
     "@nestjs/swagger": "^4.7.15",
     "@nestjs/throttler": "^1.1.1",
     "@nestjs/typeorm": "^7.1.5",
