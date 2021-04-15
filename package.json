@@ -39,7 +39,7 @@
     "@nestjs/passport": "^7.1.5",
     "@nestjs/platform-express": "^7.6.13",
     "@nestjs/swagger": "^4.7.15",
-    "@nestjs/throttler": "^1.1.1",
+    "@nestjs/throttler": "^1.1.2",
     "@nestjs/typeorm": "^7.1.5",
     "bcrypt": "^5.0.1",
     "cache-manager": "^3.4.1",
